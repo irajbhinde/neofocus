@@ -7,6 +7,19 @@
   pointer-events: none;
 }
 
+.container{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
