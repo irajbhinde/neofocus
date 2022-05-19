@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "../TimeComponent/timecard.css"
 
 export default function TimeCard() {
   const [time, setTime] = useState(new Date());
@@ -12,5 +13,5 @@ export default function TimeCard() {
   var today = new Date();
   var timeFormat = today.getHours() + ":" + today.getMinutes();
 
-  return <h1>{timeFormat}</h1>;
+  return <h1 className="time_container">{timeFormat}</h1>;
 }
