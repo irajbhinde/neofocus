@@ -1,5 +1,8 @@
 import { quoteList } from "../dataImports/quotes";
 
-const getRandomQuote = Math.ceil(Math.random(0, quoteList.quotes.length) * 100);
+const newQuoteList = quoteList.quotes.filter(
+  (quoteLength) => quoteLength.quote.length < 70
+);
+const getRandomQuote = Math.floor(Math.random() * newQuoteList.length);
 
-export { getRandomQuote };
+export { getRandomQuote, newQuoteList };
