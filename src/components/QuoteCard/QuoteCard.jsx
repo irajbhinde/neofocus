@@ -1,6 +1,9 @@
-import { getRandomQuote } from "../../utils/randomQuoteGenerator";
+import { getRandomQuote, newQuoteList } from "../../utils/randomQuoteGenerator";
 import { quoteList } from "../../dataImports/quotes";
+import "../QuoteCard/quotecard.css"
+
 export default function QuoteCard() {
-  const quote = quoteList.quotes[getRandomQuote].quote;
-  return <h1>{quote}</h1>;
+  
+  const quote = newQuoteList[getRandomQuote].quote;
+  return <footer className="quote_container">{quote}</footer>;
 }
