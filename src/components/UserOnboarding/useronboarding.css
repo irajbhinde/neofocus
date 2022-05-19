@@ -1,0 +1,32 @@
+.user-input {
+  background: transparent;
+  border: none;
+  border-bottom: solid white 1.5px;
+  color: white;
+  width: 33rem;
+  font-size: 1.5rem;
+}
+
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user-input:focus {
+  outline: none;
+}
+
+.btn-continue {
+  width: 5rem;
+  height: 2rem;
+  background-color: black;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+.welcome-msg{
+  font-size: 4rem;
+}
