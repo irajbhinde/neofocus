@@ -5,6 +5,7 @@
   color: white;
   width: 33rem;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .centered {
@@ -19,14 +20,33 @@
 }
 
 .btn-continue {
-  width: 5rem;
-  height: 2rem;
-  background-color: black;
-  border-radius: 1rem;
+  padding: 0.8rem;
   cursor: pointer;
-  color: white;
+  box-shadow: rgb(0 0 0 / 24%) 0px 4px 9px;
+  border-radius: 5px;
+  font-weight: 600;
+  min-width: 100px;
+  border: none;
+  color: black;
 }
 
-.welcome-msg{
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-msg {
   font-size: 4rem;
+}
+
+.userInfo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
 }

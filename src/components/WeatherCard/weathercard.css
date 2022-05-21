@@ -1,14 +1,15 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.weather_and_city{
-    padding-top: 3rem;
-    position: absolute;
-    padding-right: 1rem;
-    display: flex;
-    flex-direction: column;
-    right: 0;
+.weather_and_city {
+  padding-top: 3rem;
+  position: absolute;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  right: 0;
 }

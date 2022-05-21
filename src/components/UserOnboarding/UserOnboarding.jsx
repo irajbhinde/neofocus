@@ -14,12 +14,12 @@ export default function UserOnboarding() {
         name: userName,
         city: userLocation,
       };
-      localStorage.setItem("userInfo", JSON.stringify(userInfo));
       setUserDetails({
         ...userDetails,
         onboardingStatus: true,
         userInfo: userInfo,
       });
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
     } catch (error) {
       console.log(error);
     }
@@ -31,17 +31,18 @@ export default function UserOnboarding() {
   };
 
   useEffect(() => {
-    const getUserName = async () => {
-      try {
-        const objectContent = localStorage.getItem("userInfo");
-        console.log(objectContent);
-        const userObject = JSON.parse(objectContent);
-        setUserName(userObject.name);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUserName();
+    if (onboardingStatus) {
+      const getUserName = async () => {
+        try {
+          const objectContent = localStorage.getItem("userInfo");
+          const userObject = JSON.parse(objectContent);
+          setUserName(userObject.name);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getUserName();
+    }
   });
 
   return (
@@ -53,32 +54,36 @@ export default function UserOnboarding() {
           </>
         ) : userStatus ? (
           <>
-            <div>Which City do you live in ?</div>
-            <input
-              onChange={(e) => setUserLocation(e.target.value)}
-              className="user-input"
-            />
-            <div>
-              <button
-                onClick={() => onboardingHandler()}
-                className="btn-continue"
-              >
-                Continue
-              </button>
+            <div className="userInfo-container">
+              <div className="userInfo">Which City do you live in ?</div>
+              <input
+                onChange={(e) => setUserLocation(e.target.value)}
+                className="user-input"
+              />
+              <div className="btn-container">
+                <button
+                  onClick={() => onboardingHandler()}
+                  className="btn-continue"
+                >
+                  Continue
+                </button>
+              </div>
             </div>
           </>
         ) : (
           <>
-            <div>Hello, What's your name ?</div>
-            <input
-              id="myForm"
-              onChange={(e) => setUserName(e.target.value)}
-              className="user-input"
-            />
-            <div>
-              <button onClick={clickHandler} className="btn-continue">
-                Continue
-              </button>
+            <div className="userInfo-container">
+              <div className="userInfo">Hello, What's your name ?</div>
+              <input
+                id="myForm"
+                onChange={(e) => setUserName(e.target.value)}
+                className="user-input"
+              />
+              <div className="btn-container">
+                <button onClick={clickHandler} className="btn-continue">
+                  Continue
+                </button>
+              </div>
             </div>
           </>
         )}
