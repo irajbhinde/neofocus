@@ -11,10 +11,8 @@
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  width: max-content;
   gap: 1.5rem;
 }
 
@@ -33,16 +31,17 @@
   width: max-content;
   border: none;
   color: black;
-  }
+}
 
-.focus-text{
+.focus-text {
   display: flex;
   justify-content: center;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
-.focus-content{
+.focus-content {
+  align-items: center;
   display: flex;
   justify-content: center;
   font-size: 3rem;
@@ -50,27 +49,31 @@
   gap: 2rem;
 }
 
-.line-through{
+.line-through {
   text-decoration: line-through;
 }
 
-.new-task{
+.new-task {
   display: flex;
   cursor: pointer;
 }
 
-.new-task-text{
+.new-task-text {
   font-size: 1rem;
 }
 
-.edit-container{
+.edit-container {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.checked-msg{
+.checked-msg {
   display: flex;
   justify-content: center;
+}
+
+.unchecked-icons{
+  cursor: pointer;
 }

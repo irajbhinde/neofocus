@@ -1,8 +1,9 @@
-.quote_container{
-    display: flex;
-    position: absolute;
-    width: 100%;
-    bottom: 2rem;
-    justify-content: center;
-    font-size: 1.3rem;
+.quote_container {
+  display: flex;
+  width: 100%;
+  bottom: 2rem;
+  justify-content: center;
+  font-size: 1.3rem;
+  position: fixed;
+  bottom: 10px;
 }

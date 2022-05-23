@@ -64,7 +64,7 @@ export default function Focus() {
       <span className="focus-content">
         <CheckBoxOutlineBlank onClick={() => setActionType("checked")} />{" "}
         {focus}
-        <span>
+        <span className="unchecked-icons">
           <EditIcon onClick={editHandler} />{" "}
           <DeleteIcon onClick={deleteHandler} />
         </span>

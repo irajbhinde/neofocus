@@ -5,16 +5,14 @@
 }
 
 .weather_and_city {
-  padding-top: 3rem;
-  position: absolute;
-  padding-right: 1rem;
+  padding-top: 2rem;
+  min-width: 100px;
+  align-self: flex-end;
   display: flex;
   flex-direction: column;
-  top: 0;
-  right: 0;
 }
 
-.weather_and_city h1{
+.weather_and_city h1 {
   display: flex;
   justify-content: center;
 }

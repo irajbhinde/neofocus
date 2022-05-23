@@ -8,13 +8,6 @@
   text-align: center;
 }
 
-.centered {
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
-}
-
 .user-input:focus {
   outline: none;
 }
@@ -40,6 +33,7 @@
 }
 
 .userInfo-container {
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;

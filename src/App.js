@@ -12,11 +12,13 @@ function App() {
   return (
     <>
       <BackroundImage />
-      <TimeCard />
-      <UserOnboarding />
-      <Focus />
-      <WeatherCard />
-      <QuoteCard />
+      <div className="container">
+        <WeatherCard />
+        <TimeCard />
+        <UserOnboarding />
+        <Focus />
+        <QuoteCard />
+      </div>
     </>
   );
 }
