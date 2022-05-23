@@ -81,7 +81,11 @@ export default function Focus() {
         onChange={(e) => setFocus(e.target.value)}
       />
       <div className="btn-container">
-        <button disabled={focus===""} onClick={todoHandler} className="btn-setfocus">
+        <button
+          disabled={focus === ""}
+          onClick={todoHandler}
+          className="btn-setfocus"
+        >
           Set Focus
         </button>
       </div>
@@ -115,7 +119,11 @@ export default function Focus() {
         type="text"
       />
       <div className="btn-container">
-        <button disabled={focus===""} onClick={todoHandler} className="btn-setfocus">
+        <button
+          disabled={focus === ""}
+          onClick={todoHandler}
+          className="btn-setfocus"
+        >
           Set Focus
         </button>
       </div>

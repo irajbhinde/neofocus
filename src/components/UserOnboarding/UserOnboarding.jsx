@@ -62,7 +62,7 @@ export default function UserOnboarding() {
 
   return (
     <>
-      <div className="centered">
+      <div>
         {onboardingStatus ? (
           <>
             <div className="welcome-msg">
