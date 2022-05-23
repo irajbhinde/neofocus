@@ -5,6 +5,7 @@ import {
   QuoteCard,
   WeatherCard,
   UserOnboarding,
+  Focus,
 } from "./components";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <BackroundImage />
       <TimeCard />
       <UserOnboarding />
+      <Focus />
       <WeatherCard />
       <QuoteCard />
     </>
