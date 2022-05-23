@@ -5,9 +5,11 @@ import "./useronboarding.css";
 export default function UserOnboarding() {
   const { userDetails, setUserDetails } = useOnboardingContext();
   const { onboardingStatus } = userDetails;
+  const [message, setMessage] = useState("");
   const [userName, setUserName] = useState("");
   const [userStatus, setUserStatus] = useState(false);
-  const [userLocation, setUserLocation] = useState("Mumbai");
+  const [userLocation, setUserLocation] = useState("");
+
   const onboardingHandler = () => {
     try {
       const userInfo = {
@@ -37,6 +39,8 @@ export default function UserOnboarding() {
           const objectContent = localStorage.getItem("userInfo");
           const userObject = JSON.parse(objectContent);
           setUserName(userObject.name);
+          const welcomeMessage = localStorage.getItem("welcomeMessage");
+          setMessage(welcomeMessage);
         } catch (error) {
           console.log(error);
         }
@@ -45,23 +49,38 @@ export default function UserOnboarding() {
     }
   });
 
+  const userNameHandler = (e) => {
+    if (e.key === "Enter" && userName !== "") {
+      clickHandler();
+    }
+  };
+  const cityKeyHandler = (e) => {
+    if (e.key === "Enter" && userLocation !== "") {
+      onboardingHandler();
+    }
+  };
+
   return (
     <>
       <div className="centered">
         {onboardingStatus ? (
           <>
-            <div className="welcome-msg">Hello {userName}</div>
+            <div className="welcome-msg">
+              {message} {userName}
+            </div>
           </>
         ) : userStatus ? (
           <>
             <div className="userInfo-container">
               <div className="userInfo">Which City do you live in ?</div>
               <input
+                onKeyPress={(e) => cityKeyHandler(e)}
                 onChange={(e) => setUserLocation(e.target.value)}
                 className="user-input"
               />
               <div className="btn-container">
                 <button
+                  disabled={userLocation === ""}
                   onClick={() => onboardingHandler()}
                   className="btn-continue"
                 >
@@ -75,12 +94,17 @@ export default function UserOnboarding() {
             <div className="userInfo-container">
               <div className="userInfo">Hello, What's your name ?</div>
               <input
+                onKeyPress={(e) => userNameHandler(e)}
                 id="myForm"
                 onChange={(e) => setUserName(e.target.value)}
                 className="user-input"
               />
               <div className="btn-container">
-                <button onClick={clickHandler} className="btn-continue">
+                <button
+                  disabled={userName === ""}
+                  onClick={clickHandler}
+                  className="btn-continue"
+                >
                   Continue
                 </button>
               </div>
