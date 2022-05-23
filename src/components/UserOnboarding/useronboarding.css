@@ -1,0 +1,46 @@
+.user-input {
+  background: transparent;
+  border: none;
+  border-bottom: solid white 1.5px;
+  color: white;
+  width: 33rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.user-input:focus {
+  outline: none;
+}
+
+.btn-continue {
+  padding: 0.8rem;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 24%) 0px 4px 9px;
+  border-radius: 5px;
+  font-weight: 600;
+  min-width: 100px;
+  border: none;
+  color: black;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-msg {
+  font-size: 4rem;
+}
+
+.userInfo-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}

@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TimeCard from "./components/TimeComponent/TimeCard.jsx";
+import {
+  BackroundImage,
+  QuoteCard,
+  WeatherCard,
+  UserOnboarding,
+  Focus,
+} from "./components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BackroundImage />
+      <div className="container">
+        <WeatherCard />
+        <TimeCard />
+        <UserOnboarding />
+        <Focus />
+        <QuoteCard />
+      </div>
+    </>
   );
 }
 
