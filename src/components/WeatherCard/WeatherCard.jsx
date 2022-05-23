@@ -30,7 +30,8 @@ export default function WeatherCard() {
           const weather_response = await axios.get(weatherLink);
           const currentTemp = weather_response.data.main.temp;
           const tempInCelcius = currentTemp - 273.15;
-          setTemperature(tempInCelcius);
+          const filteredTemp = tempInCelcius.toFixed(0);
+          setTemperature(filteredTemp);
           tempStatus(true);
         } catch (error) {
           console.log(error);
