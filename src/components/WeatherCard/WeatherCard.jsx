@@ -22,7 +22,7 @@ export default function WeatherCard() {
             const userObj = JSON.parse(userInfo);
             setUserLocation(userObj.city);
           }
-          const coordinatesLink = `http://api.openweathermap.org/geo/1.0/direct?q=${userLocation}&limit=5&appid=27a2ee89e03b4d0b5199b633e513ea3d`;
+          const coordinatesLink = `https://api.openweathermap.org/geo/1.0/direct?q=${userLocation}&limit=5&appid=27a2ee89e03b4d0b5199b633e513ea3d`;
           const coordinates_response = await axios.get(coordinatesLink);
           const latitude = coordinates_response.data[0].lat;
           const longitude = coordinates_response.data[0].lon;
