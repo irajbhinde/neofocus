@@ -9,12 +9,23 @@ export default function UserOnboarding() {
   const [userName, setUserName] = useState("");
   const [userStatus, setUserStatus] = useState(false);
   const [userLocation, setUserLocation] = useState("");
+  const [autoLocation, setAutoLocation] = useState({
+    latitude: null,
+    longitude: null,
+  });
+
+  const emptyTextValidation = (e) => {
+    const input = e.target.value;
+    const trimmedInput = input.trim();
+    setUserName(trimmedInput);
+  };
 
   const onboardingHandler = () => {
     try {
-      const userInfo = {
+      var userInfo = {
         name: userName,
         city: userLocation,
+        geoLocation: autoLocation,
       };
       setUserDetails({
         ...userDetails,
@@ -31,6 +42,12 @@ export default function UserOnboarding() {
     var form = document.getElementById("myForm");
     form.value = "";
   };
+
+  useEffect(() => {
+    if (autoLocation.latitude !== null) {
+      onboardingHandler();
+    }
+  }, [autoLocation]);
 
   useEffect(() => {
     if (onboardingStatus) {
@@ -59,7 +76,6 @@ export default function UserOnboarding() {
       onboardingHandler();
     }
   };
-
   return (
     <>
       <div>
@@ -78,9 +94,29 @@ export default function UserOnboarding() {
                 onChange={(e) => setUserLocation(e.target.value)}
                 className="user-input"
               />
+              <h2>OR</h2>
+              <div
+                onClick={() => {
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                      setAutoLocation({
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude,
+                      });
+                    });
+                  }
+                  onboardingHandler();
+                }}
+                className="auto-detection"
+              >
+                <i className="fa-solid fa-location-crosshairs"></i>
+                <p>Automatically Detect Your Location</p>
+              </div>
               <div className="btn-container">
                 <button
-                  disabled={userLocation === ""}
+                  disabled={
+                    userLocation?.trim() === "" && autoLocation.latitude === null
+                  }
                   onClick={() => onboardingHandler()}
                   className="btn-continue"
                 >
@@ -96,7 +132,7 @@ export default function UserOnboarding() {
               <input
                 onKeyPress={(e) => userNameHandler(e)}
                 id="myForm"
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => emptyTextValidation(e)}
                 className="user-input"
               />
               <div className="btn-container">
