@@ -8,7 +8,7 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import AddIcon from "@mui/icons-material/Add";
 
 export default function Focus() {
-  const [focus, setFocus] = useState("");
+  const [focus, setFocus] = useState();
   const [editFlag, setEditFlag] = useState({
     editing: false,
   });
@@ -39,6 +39,12 @@ export default function Focus() {
     });
   };
 
+  const emptyTextValidation = (e) => {
+    const input = e.target.value;
+    const trimmedInput = input.trim();
+    setFocus(trimmedInput);
+  };
+
   useEffect(() => {
     if (todoStatus) {
       const getFocusContent = async () => {
@@ -54,7 +60,7 @@ export default function Focus() {
   }, []);
 
   const focusKeyHandler = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && focus?.trim() !== "" && focus) {
       todoHandler();
     }
   };
@@ -82,7 +88,7 @@ export default function Focus() {
       />
       <div className="btn-container">
         <button
-          disabled={focus === ""}
+          disabled={focus?.trim() === ""}
           onClick={todoHandler}
           className="btn-setfocus"
         >
@@ -114,13 +120,13 @@ export default function Focus() {
       <p className="todo">What's your main focus for today ?</p>
       <input
         onKeyPress={(e) => focusKeyHandler(e)}
-        onChange={(e) => setFocus(e.target.value)}
+        onChange={(e) => emptyTextValidation(e)}
         className="user-input"
         type="text"
       />
       <div className="btn-container">
         <button
-          disabled={focus === ""}
+          disabled={!focus}
           onClick={todoHandler}
           className="btn-setfocus"
         >
